@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Customer Registration</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+      function validate()
+      {
+      var a=document.forms[0].elements[0].value;
+      if(a==""||a==null)
+      {
+      document.getElementById("fname").innerHTML="<font color=red>Fill Name";
+      return false;
+    }
+    var b=document.forms[0].elements[1].value;
+      if(b==""||b==null)
+      {
+      document.getElementById("ano").innerHTML="<font color=red>Fill Aadhar number";
+      return false;
+    }
+    if(isNaN(b))
+    {
+     document.getElementById("ano").innerHTML="<font color=red>Fill Numeric Value";
+      return false; 
+    }
+    if(b.length!=12)
+    {
+      document.getElementById("ano").innerHTML="<font color=red>Fill 12 digit aadhar number ";
+      return false;
+    }
+    var c=document.forms[0].elements[2].value;
+      if(c==""||c==null)
+      {
+      document.getElementById("email").innerHTML="<font color=red>Fill Email-Id";
+      return false;
+    }
+    var d=document.forms[0].elements[3].value;
+    if(d==""||d==null)
+      {
+      document.getElementById("mobileno").innerHTML="<font color=red>please enter mobile number";
+      return false;
+    }
+    if (isNaN(d)) 
+    {
+      document.getElementById("mobileno").innerHTML="<font color=red>please enter mobile number in digit";
+      return false;
+    }
+    if(d.length!=10)
+      {
+      document.getElementById("mobileno").innerHTML="<font color=red>please enter 10 digit mobile number";
+      return false;
+    }
+    var e=document.forms[0].elements[5].value;
+    if(e==""||e==null)
+      {
+      document.getElementById("pass").innerHTML="<font color=red>please enter password";
+      return false;
+    }
+    if(e.length < 8)
+    {
+      document.getElementById("pass").innerHTML="<font color=red>password should be 8 digit";
+      return false;
+    }
+    var f=document.forms[0].elements[6].value;
+    if(f==""||f==null)
+      {
+      document.getElementById("cpass").innerHTML="<font color=red>please enter confirm password";
+      return false;
+    }
+    if (e!=f) 
+    {
+      document.getElementById("cpass").innerHTML="<font color=red>please match the password";
+      return false;
+    }
+    return true;
+  }
+  </script>
+</head>
+
+  <body style="background-color: black;">
+
+<div class="container">
+ <br><center><h2><span class="text-primary"> CUSTOMER REGISTRATION FORM</h2></span></center>
+  <form action="customerregistration.php" onsubmit="return validate()">
+    <br><div class="form-group">
+      <div class="row">
+        <div class="col-lg-4">
+      <label for="fname"><span class="text-primary">FIRST NAME<sup><font color="red">*</font></sup></label></span>
+    </div>
+    <div class="col-lg-4">
+      <label for="mname"><span class="text-primary">MIDDLE NAME<sup><font color="red">*</font></sup></label></span>
+    </div>
+    <div class="col-lg-4">
+      <label for="lname"><span class="text-primary">LAST NAME<sup><font color="red">*</font></sup></label></span>
+    </div>
+  </div>
+      <div class="row">
+        <div class="col-lg-12">
+      <input type="text" class="form-control"  placeholder="Enter  Full Name" name="txtname">
+      <p id="fname"></p>
+    </div>
+    
+</div>
+</div>
+<div class="form-group">
+      <div class="row">
+        <div class="col-lg-4">
+          <b><span class="text-primary">Aadhar Number<sup><font color="red">*</font></sup></span></b>
+          <input type="text" class="form-control"  placeholder="Enter Aadhar Number" name="txtano">
+      <p id="ano"></p>  
+            </div>
+        <div class="col-lg-4">
+         <b><span class="text-primary">Email<sup><font color="red">*</font></sup></span></b>
+             <input type="text" class="form-control"  placeholder="Enter EmailId" name="txtemail">
+      <p id="email"></p>
+                      </div>
+        <div class="col-lg-4">
+      <label for="mobileno"><span class="text-primary">MOBILE NUMBER<sup><font color="red">*</font></sup></label></span>
+      <input type="text" class="form-control" id="mobno" placeholder="Enter Mobile Number" name="txtmobno">
+      <p id="mobileno"></p>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+      <div class="row">
+        <div class="col-lg-4">
+      <label for="uname"><span class="text-primary">USERNAME<sup><font color="red">*</font></sup></label></span>
+      </div>
+      <div class="col-lg-4">
+      <label for="password"><span class="text-primary">PASSWORD<sup><font color="red">*</font></sup></label></span>
+    </div>
+    <div class="col-lg-4">
+      <label for="password"><span class="text-primary">CONFIRM PASSWORD<sup><font color="red">*</font></sup></label></span>
+    </div>
+  </div>
+    <div class="row">
+      <div class="col-lg-4">
+      <input type="text" class="form-control" id="uname" placeholder="Enter Username name" name="txtuname">
+      <p id="usname"></p>
+    </div>
+    <div class="col-lg-4">
+    <input type="Password" class="form-control" id="pwd" placeholder="Enter your password" name="txtpass">
+    <p id="pass"></p>
+    </div>
+    <div class="col-lg-4">  
+      <input type="Password" class="form-control" id="pwd" placeholder="Confirm password" name="txtcpass">
+      <p id="cpass"></p>
+    </div>
+  </div>
+</div>
+   <div class="form-group">
+  <div class="row">
+    <div class="col-lg-4">
+    <b><span class="text-primary">GENDER<sup><font color="red">*</font></sup></span></b>
+    </div>
+  </div>
+    <div class="row">
+    <div class="col-lg-2">
+     <span class="text-danger"><b> MALE<input type="radio" name="r" value="male"></b></span>
+   </div>
+   <div class="col-lg-2">
+      <span class="text-danger"><b>FEMALE<input type="radio" name="r" value="female"></b></span>
+    </div>
+    <div class="col-lg-2">
+      <span class="text-danger"><b>TRANSGENDER<input type="radio" name="r" value="transgender"></b></span>
+    </div>
+  </div>
+</div>
+<p><b><font color="red"> NOTE : * indicate mandatory field</b></p>
+
+ <button type="submit" class="btn btn-primary">SUBMIT</button>&nbsp;&nbsp;<a href="middle.html" class="btn btn-primary">Home</a>
+  </form>
+</div>
+
+</body>
+</html>
